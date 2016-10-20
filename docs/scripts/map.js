@@ -90,7 +90,7 @@ $(function() {
 	// list views from Cloudant that we want to offer as layers
 	var cloudantViews = [];
 // ACTION ITEM: Replace cloudant database URL with URL for your database 
-	$.getJSON('https://vulibrarygis.cloudant.com/map-berlin/_design/tour/',
+	$.getJSON('https://nkostiw.cloudant.com/practice/_design/tour/',
 		function(result) {
 			var viewsList = result.views;
 			for (var v in viewsList) {
@@ -126,7 +126,7 @@ $("#search").submit(function(event) {
 function getLayer(callback, cloudantView) {
 // ACTION ITEM: Replace cloudant database URL with URL for your database 	
 	var cloudantURLbase =
-		"https://vulibrarygis.cloudant.com/map-berlin/_design/tour/_view/";
+		"https://nkostiw.cloudant.com/practice/_design/tour/_view/";
 	var cloudantURLcallback = "?callback=?";
 	var thisCloudantURL = cloudantURLbase + cloudantView + cloudantURLcallback;
 	$.getJSON(thisCloudantURL, function(result) {
@@ -143,7 +143,7 @@ function getLayer(callback, cloudantView) {
 function searchPoints(callback, cloudantSearch) {
 // ACTION ITEM: Replace cloudant database URL with URL for your database 	
 	var cloudantURLbase =
-		"https://vulibrarygis.cloudant.com/map-berlin/_design/tour/_search/ids?q=";
+		"https://nkostiw.cloudant.com/practice/_design/tour/_search/ids?q=";
 	var cloudantURLcallback = "&callback=?";
 	var thisCloudantURL = cloudantURLbase + cloudantSearch + cloudantURLcallback;
 	$.getJSON(thisCloudantURL, function(result) {
@@ -167,7 +167,7 @@ function getPoints(cloudantIDs) {
 
 	function getPoint(id) {
 // ACTION ITEM: Replace cloudant database URL with URL for your database 		
-		var cloudantURLbase = "https://vulibrarygis.cloudant.com/map-berlin/";
+		var cloudantURLbase = "https://nkostiw.cloudant.com/practice/";
 		var url = cloudantURLbase + id;
 		return $.getJSON(url); // this returns a "promise"
 	}
@@ -194,9 +194,9 @@ function processLayer(result) {
 	// Add features to the map
 	var selection_label = $('#layers-dropdown option:selected').text();
 // ACTION ITEM: The selection label must match your view in Cloudant	
-	if (selection_label == "1908") {
+	if (selection_label == "open") {
 // ACTION ITEM: Replace mapbox id below with the mapbox id that corresponds to your georeferenced map for the view above			
-		new_id = 'nkostiw.1ibmhd84'
+		new_id = 'ramona2020.0f9jb407'
 	} 
 // ACTION ITEM: If you would like to incorporate multiple views into your mapping application, remove the double slashes in front of each trio of lines beginning with else if and ending with the end curly brace.	
 // ACTION ITEM: Each trio of lines from else if to the end curly brace is equivalent to one Cloudant view and map.
